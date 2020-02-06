@@ -1,0 +1,14 @@
+@import "./_variables";
+@import "./_bienvenidos.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: red;
+    font-family: $fonts;
+    /*     display: flex;
+    flex-direction: column; */
+}

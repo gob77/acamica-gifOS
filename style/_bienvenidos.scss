@@ -1,0 +1,124 @@
+@import "./variables";
+
+header {
+    margin: 0 auto;
+    background-color: greenyellow;
+    display: flex;
+    flex-direction: column;
+
+    .bienvenidos {
+        background-image: $gradient;
+        border: 1px solid black;
+        display: flex;
+        justify-content: flex-start;
+        font-family: $fonts;
+    }
+
+    .container {
+        width: 1200px;
+        display: flex;
+        justify-content: center;
+        margin: 20px auto;
+
+        .menus {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            background-color: hotpink;
+
+            .logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 102.6px;
+                    height: 64px;
+                }
+            }
+
+            .buttons {
+                display: flex;
+                align-items: center;
+                width: 38%;
+
+                .crear-btn {
+                    width: 144px;
+                    height: 36px;
+                    font-family: $fonts;
+                    background: $btnBg;
+                    border: $btnBorder;
+                    box-shadow: $btnShadow;
+                }
+
+                .themes-container {
+                    position: relative;
+                    display: inline-block;
+                    display: flex;
+                    z-index: 10;
+                    margin: 5%;
+                    background-color: yellow;
+
+                    .elegir {
+                        width: 131px;
+                        height: 36px;
+                        font-family: $fonts;
+                        background: $btnBg;
+                        border: $btnBorder;
+                        box-shadow: $btnShadow;
+                    }
+
+                    .themes-name {
+                        background-color: turquoise;
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        padding: 5%;
+                        background: #e6e6e6;
+                        box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+
+                        .themes-btn {
+                            position: relative;
+                            width: 150px;
+                            height: 36px;
+                            margin: 5%;
+                            background: #f0f0f0;
+                            border: 1px solid #808080;
+                            box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+                            font-family: $fonts;
+                            text-align: left;
+                            padding: 0 5%;
+                            /* &::first-letter {
+                                text-decoration: underline;
+                            } */
+
+                            &::after {
+                                content: "__";
+                                position: absolute;
+                                top: 40%;
+                                left: 6%;
+                            }
+
+                            &:hover {
+                                background: #fff4fd;
+                                border: 1px solid #cca6c9;
+                                box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
+                            }
+                        }
+                    }
+
+                    .themes-arrow {
+                        width: 36px;
+                        height: 36px;
+                        font-family: $fonts;
+                        background: $btnBg;
+                        border: $btnBorder;
+                        box-shadow: $btnShadow;
+                    }
+                }
+            }
+        }
+    }
+}
