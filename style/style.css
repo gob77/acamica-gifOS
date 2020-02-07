@@ -106,17 +106,7 @@ header .container .menus .buttons .themes-container .elegir {
 }
 
 header .container .menus .buttons .themes-container .themes-name {
-  background-color: turquoise;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -130,7 +120,7 @@ header .container .menus .buttons .themes-container .themes-name .themes-btn {
   position: relative;
   width: 150px;
   height: 36px;
-  margin: 5%;
+  margin: 5% 0;
   background: #f0f0f0;
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
@@ -138,9 +128,6 @@ header .container .menus .buttons .themes-container .themes-name .themes-btn {
   font-family: "Chakra Petch", sans-serif;
   text-align: left;
   padding: 0 5%;
-  /* &::first-letter {
-                                text-decoration: underline;
-                            } */
 }
 
 header .container .menus .buttons .themes-container .themes-name .themes-btn::after {
@@ -155,6 +142,10 @@ header .container .menus .buttons .themes-container .themes-name .themes-btn:hov
   border: 1px solid #cca6c9;
   -webkit-box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
           box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
+}
+
+header .container .menus .buttons .themes-container .show {
+  display: block;
 }
 
 header .container .menus .buttons .themes-container .themes-arrow {
@@ -177,5 +168,9 @@ body {
   font-family: "Chakra Petch", sans-serif;
   /*     display: flex;
     flex-direction: column; */
+}
+
+.show {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */

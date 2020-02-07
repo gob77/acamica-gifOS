@@ -68,10 +68,7 @@ header {
                     }
 
                     .themes-name {
-                        background-color: turquoise;
-                        display: flex;
-                        align-items: center;
-                        flex-direction: column;
+                        display: none;
                         position: absolute;
                         top: 100%;
                         left: 0;
@@ -83,16 +80,13 @@ header {
                             position: relative;
                             width: 150px;
                             height: 36px;
-                            margin: 5%;
+                            margin: 5% 0;
                             background: #f0f0f0;
                             border: 1px solid #808080;
                             box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
                             font-family: $fonts;
                             text-align: left;
                             padding: 0 5%;
-                            /* &::first-letter {
-                                text-decoration: underline;
-                            } */
 
                             &::after {
                                 content: "__";
@@ -107,6 +101,10 @@ header {
                                 box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
                             }
                         }
+                    }
+
+                    .show {
+                        display: block;
                     }
 
                     .themes-arrow {
