@@ -15,16 +15,16 @@
                 <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p>
             </div>
             <div class="container">
-                <div class="menus">
+                <nav class="menus">
                     <div class="logo">
                         <img src="./img/gifOF_logo.png" alt="" />
                     </div>
                     <div class="buttons">
-                        <button class="crear-btn">Crear Guifos</button>
+                        <button class="new-btn">Crear Guifos</button>
 
                         <div class="themes-container" id="themes-container">
                             <button class="elegir" id="elegir">Elegir Tema</button>
-                            <div class="themes-name" id="names">
+                            <div class="themes-name" id="themes">
                                 <button class="themes-btn">Sailor Day</button>
                                 <button class="themes-btn">Sailor Night</button>
                             </div>
@@ -33,21 +33,31 @@
                             </button>
                         </div>
 
-                        <a href="#" class="preferidos">Mis Guifos</a>
+                        <div class="favorites-container">
+                            <a href="#" class="favorites">Mis Guifos</a>
+                        </div>
                     </div>
-                </div>
-                <!-- <div class="busqueda">
-                    <div class="titulo-buscar">
+                </nav>
+                <div class="search-container">
+                    <div class="search-title">
                         <p>Buscar</p>
                     </div>
-                    <div class="barra-buscar">
+                    <div class="searchbar">
                         <input type="text" name="busqueda" id="buscar" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…" />
                         <button id="btn" class="aceptar-btn" disabled><img src="./img/lupa_inactive.svg" alt="lupa" />Buscar</button>
                     </div>
-                </div> -->
+                </div>
             </div>
         </header>
 
+        <div class="main-content">
+            <article class="suggested" id="suggested">
+                <h1>Hoy te sugerimos</h1>
+            </article>
+            <article class="trends" id="trends">
+                <h1>Tendecias</h1>
+            </article>
+        </div>
         <script src="/script.js"></script>
     </body>
 </html>

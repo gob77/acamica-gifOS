@@ -1,3 +1,6 @@
+/* this files includes all elements insidade the header
+   buttons, search bar, welcome bar, and search results*/
+
 @import "./variables";
 
 header {
@@ -17,8 +20,10 @@ header {
     .container {
         width: 1200px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         margin: 20px auto;
+        background-color: blueviolet;
 
         .menus {
             display: flex;
@@ -41,22 +46,32 @@ header {
                 align-items: center;
                 width: 38%;
 
-                .crear-btn {
+                .new-btn {
                     width: 144px;
                     height: 36px;
                     font-family: $fonts;
                     background: $btnBg;
                     border: $btnBorder;
                     box-shadow: $btnShadow;
+
+                    &:hover {
+                        outline: $outlined;
+                        outline-offset: $offset;
+                    }
                 }
 
                 .themes-container {
                     position: relative;
-                    display: inline-block;
                     display: flex;
                     z-index: 10;
                     margin: 5%;
                     background-color: yellow;
+
+                    &:hover .elegir,
+                    &:hover .themes-arrow {
+                        outline: $outlined;
+                        outline-offset: $offset;
+                    }
 
                     .elegir {
                         width: 131px;
@@ -74,7 +89,7 @@ header {
                         left: 0;
                         padding: 5%;
                         background: #e6e6e6;
-                        box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+                        box-shadow: $btnShadow;
 
                         .themes-btn {
                             position: relative;
@@ -83,15 +98,19 @@ header {
                             margin: 5% 0;
                             background: #f0f0f0;
                             border: 1px solid #808080;
-                            box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+                            box-shadow: $btnShadow;
                             font-family: $fonts;
                             text-align: left;
                             padding: 0 5%;
+                            font-size: 16px;
+                            color: #110038;
+                            letter-spacing: 0;
+                            line-height: 22px;
 
                             &::after {
                                 content: "__";
                                 position: absolute;
-                                top: 40%;
+                                top: 35%;
                                 left: 6%;
                             }
 
@@ -114,6 +133,98 @@ header {
                         background: $btnBg;
                         border: $btnBorder;
                         box-shadow: $btnShadow;
+                    }
+                }
+
+                .favorites-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 99px;
+                    height: 36px;
+
+                    &:hover {
+                        outline: $outlined;
+                        outline-offset: $offset;
+                    }
+
+                    .favorites {
+                        text-decoration: none;
+                        position: relative;
+                        font-size: 16px;
+                        color: #110038;
+                        letter-spacing: 0;
+                        line-height: 18px;
+                        font-family: $fonts;
+
+                        &::after {
+                            content: "__";
+                            position: absolute;
+                            top: 20%;
+                            left: 0;
+                        }
+
+                        &:active {
+                            color: #110038;
+                        }
+                    }
+                }
+            }
+        }
+
+        .search-container {
+            background-color: blue;
+            width: 100%;
+            height: 99px;
+            margin-top: 25px;
+            background: #e6e6e6;
+            box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+
+            .search-title {
+                background-image: $gradient;
+                width: 99.5%;
+                height: 24px;
+                margin: 0.1% 0.2%;
+                font-family: $fonts;
+            }
+
+            .searchbar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                input {
+                    width: 85%;
+                    height: 48px;
+                    margin: 1% 2%;
+                    background: #ffffff;
+                    border: 1px solid #979797;
+                    box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+
+                    &::placeholder {
+                        padding: 0 2%;
+                        font-family: $fonts;
+                        font-size: 16px;
+                        color: #110038;
+                        letter-spacing: 0;
+                        line-height: 22px;
+                    }
+                }
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    width: 102px;
+                    height: 36px;
+                    background: #e6e6e6;
+                    border: 1px solid #808080;
+                    box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+
+                    &:active {
+                        background: #f7c9f3;
+                        border: 1px solid #110038;
+                        box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
                     }
                 }
             }
