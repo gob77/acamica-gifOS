@@ -1,11 +1,10 @@
 /* this files includes all elements insidade the header
    buttons, search bar, welcome bar, and search results*/
 
-@import "./variables";
+@import "../variables";
 
 header {
     margin: 0 auto;
-    background-color: greenyellow;
     display: flex;
     flex-direction: column;
 
@@ -23,13 +22,11 @@ header {
         flex-direction: column;
         justify-content: center;
         margin: 20px auto;
-        background-color: blueviolet;
 
         .menus {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            background-color: hotpink;
 
             .logo {
                 display: flex;
@@ -65,7 +62,6 @@ header {
                     display: flex;
                     z-index: 10;
                     margin: 5%;
-                    background-color: yellow;
 
                     &:hover .elegir,
                     &:hover .themes-arrow {
@@ -173,7 +169,6 @@ header {
         }
 
         .search-container {
-            background-color: blue;
             width: 100%;
             height: 99px;
             margin-top: 25px;
@@ -197,12 +192,19 @@ header {
                     width: 85%;
                     height: 48px;
                     margin: 1% 2%;
+                    padding: 0 0.5%;
                     background: #ffffff;
                     border: 1px solid #979797;
                     box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+                    box-sizing: border-box;
+                    font-size: 16px;
+                    color: #110038;
+                    letter-spacing: 0;
+                    line-height: 22px;
+                    font-family: $fonts;
 
                     &::placeholder {
-                        padding: 0 2%;
+                        padding: 0 0.1%;
                         font-family: $fonts;
                         font-size: 16px;
                         color: #110038;
