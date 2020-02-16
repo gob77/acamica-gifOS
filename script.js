@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchBTN = document.getElementById("search-btn");
     const suggested = document.getElementById("suggested-container");
     const trends = document.getElementById("trends-container");
+    const trend = document.getElementsByClassName("trend");
 
     /* get suggested gifs */
 
@@ -14,20 +15,22 @@ document.addEventListener("DOMContentLoaded", () => {
         /* console.log(parsedData); */
 
         let container = document.createElement("div");
-        let title = document.createElement("div");
-        let titleContainer = document.createElement("h2");
-        let img = document.createElement("img");
-        let close = document.createElement("img");
-        let name = document.createTextNode(`#Imagen nro ${n}`);
-
         container.setAttribute("class", "suggested-img");
+
+        let title = document.createElement("div");
         title.setAttribute("class", "img-title");
 
-        img.src = parsedData.data.images.fixed_height.url;
-        img.setAttribute("class", "suggested-img");
+        let titleContainer = document.createElement("h2");
 
-        close.src = "./img/close.svg";
+        let img = document.createElement("img");
+        img.setAttribute("class", "suggested-img");
+        img.src = parsedData.data.images.fixed_height.url;
+
+        let close = document.createElement("img");
         close.setAttribute("class", "close");
+        close.src = "./img/close.svg";
+
+        let name = document.createTextNode(`#Imagen nro ${n}`);
 
         title.appendChild(titleContainer);
         title.appendChild(close);
@@ -54,6 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let parsedData = await data.json();
 
         console.log(parsedData);
+
+        parsedData.data.forEach((data, index) => {
+            /* console.log(data.images.fixed_height.url);
+            console.log(index); */
+            trend[index].src = data.images.fixed_height.url;
+            trend;
+        });
     }
 
     getTrends();
@@ -73,13 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
         /* put data into the DOM */
 
         parsedData.data.forEach((data, index) => {
-            let img = document.createElement("img");
+            trend[index].src = data.iamges.fixed_height;
+
+            /* let img = document.createElement("img");
             img.src = data.images.fixed_height.url;
             trends.appendChild(img);
 
             img.addEventListener("error", () => {
                 console.log(`loading error on img ${index} `);
-            });
+            }); */
         });
     });
 

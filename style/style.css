@@ -346,7 +346,7 @@ header .container .search-container .searchbar button:active {
           box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
   color: #110038;
   padding-left: 1%;
-  width: 100%;
+  max-width: 100%;
   height: 32px;
   font-size: 14px;
   letter-spacing: 0;
@@ -365,7 +365,8 @@ header .container .search-container .searchbar button:active {
   -webkit-column-gap: 12px;
           column-gap: 12px;
   max-width: 100%;
-  height: 400px;
+  margin: 20px 0;
+  /* height: 400px; */
 }
 
 .main-content .suggested-container .suggested-img {
@@ -376,15 +377,13 @@ header .container .search-container .searchbar button:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   background: #e6e6e6;
-  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
-          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  /* box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff; */
   width: 288px;
   height: 313px;
 }
@@ -423,6 +422,73 @@ header .container .search-container .searchbar button:active {
 .main-content .suggested-container .suggested-img img {
   width: 280px;
   height: 280px;
+}
+
+/* Buttons */
+/* Hover inner dashed border */
+.trends-container {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  row-gap: 12px;
+  max-width: 100%;
+  height: 400px;
+  margin-top: 25px;
+}
+
+.trends-container .trend-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* .trend-title {
+            position: absolute;
+            width: 100%;
+            height: 24px;
+            background-image: $gradient;
+            z-index: 11;
+            left: 0;
+            bottom: 0;
+        } */
+}
+
+.trends-container .trend-container .trend {
+  position: relative;
+  width: 280px;
+  height: 290px;
+  padding: 1% 1%;
+  z-index: 10;
+}
+
+.trends-container .trend-container .trend:hover {
+  outline: 1px dashed black;
+  outline-offset: -3px;
+}
+
+.trends-container .trend-container .trend:hover ~ .trend-bg {
+  visibility: visible;
+}
+
+.trends-container .trend-container .trend-bg {
+  position: absolute;
+  visibility: hidden;
+  width: 290px;
+  height: 304px;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 }
 
 * {
