@@ -29,22 +29,28 @@ const getGifs = {
     }
 };
 
-function showData(caller, data, n) {
-    console.log(caller);
-    console.log(data.data.images);
+function showData(caller, data) {
     let random_container = document.getElementById("suggested-container");
-    let random_elem = `
-        <div class="suggested-img">
-            <div class="img-title">
-                <h2>#Imagen nro ${n}</h2>
-                <img src="./img/close.svg" class="close" />
-            </div>
-            <img src="${data.data.images.fixed_height.url}" />
-        </div>
-    `;
+    let trend_container = document.getElementById("trends-container");
 
     if (caller === "random") {
-        random_container.insertAdjacentHTML("afterbegin", random_elem);
+        let template = document.getElementById("template");
+        let clone = document.importNode(template.content, true);
+
+        clone.querySelector(".main-img").src = data.data.images.fixed_height.url;
+        clone.querySelector(".main-title").textContent = `#${data.data.title}`;
+        random_container.appendChild(clone);
+    } else if (caller === "trend") {
+        data.data.forEach(index => {
+            let template = document.getElementById("trend-template");
+            let clone = document.importNode(template.content, true);
+
+            clone.querySelector(".trend-img").src = index.images.fixed_height.url;
+            clone.querySelector(".trend-title").textContent = `#${index.title}`;
+            trend_container.appendChild(clone);
+        });
+    } else if (caller === "search") {
+        console.log(data);
     }
 }
 

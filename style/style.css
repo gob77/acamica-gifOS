@@ -1,11 +1,5 @@
-/* Buttons */
-/* Hover inner dashed border */
-/* this files includes all elements insidade the header
-   buttons, search bar, welcome bar, and search results*/
-/* Buttons */
-/* Hover inner dashed border */
 header {
-  margin: 0 auto;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,23 +7,22 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* Buttons (new, themes and misGuifos) */
 }
 
 header .bienvenidos {
-  background-image: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
-  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
-  border: 1px solid black;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  font-family: "Chakra Petch", sans-serif;
+  background-image: var(--gradient);
+  width: 100%;
 }
 
 header .container {
-  width: 1200px;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,17 +36,7 @@ header .container {
   margin: 20px auto;
 }
 
-header .container .menus {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-}
-
-header .container .menus .logo {
+header .container .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,12 +48,21 @@ header .container .menus .logo {
           align-items: center;
 }
 
-header .container .menus .logo img {
+header .container .logo img {
   width: 102.6px;
   height: 64px;
 }
 
-header .container .menus .buttons {
+.menus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.menus .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,22 +72,42 @@ header .container .menus .buttons {
   width: 38%;
 }
 
-header .container .menus .buttons .new-btn {
+.menus .buttons .btnNew {
   width: 144px;
   height: 36px;
-  font-family: "Chakra Petch", sans-serif;
-  background: #f7c9f3;
-  border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  font-family: var(--font);
+  background: var(--btnBg);
+  border: var(--btnBorder);
+  -webkit-box-shadow: var(--btnShadow);
+          box-shadow: var(--btnShadow);
 }
 
-header .container .menus .buttons .new-btn:hover {
-  outline: 1px dashed black;
-  outline-offset: -3px;
+.menus .buttons .btnNew:hover {
+  outline: var(--outlined);
+  outline-offset: var(--offset);
 }
 
-header .container .menus .buttons .themes-container {
+.menus .buttons .choose {
+  width: 131px;
+  height: 36px;
+  font-family: var(--font);
+  background: var(--btnBg);
+  border: var(--btnBorder);
+  -webkit-box-shadow: var(--btnShadow);
+          box-shadow: var(--btnShadow);
+}
+
+.menus .buttons .arrow {
+  width: 36px;
+  height: 36px;
+  font-family: var(--font);
+  background: var(--btnBg);
+  border: var(--btnBorder);
+  -webkit-box-shadow: var(--btnShadow);
+          box-shadow: var(--btnShadow);
+}
+
+.menus .buttons .themes-container {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -104,43 +116,33 @@ header .container .menus .buttons .themes-container {
   margin: 5%;
 }
 
-header .container .menus .buttons .themes-container:hover .elegir,
-header .container .menus .buttons .themes-container:hover .themes-arrow {
-  outline: 1px dashed black;
-  outline-offset: -3px;
+.menus .buttons .themes-container:hover .choose,
+.menus .buttons .themes-container:hover .arrow {
+  outline: var(--outlined);
+  outline-offset: var(--offset);
 }
 
-header .container .menus .buttons .themes-container .elegir {
-  width: 131px;
-  height: 36px;
-  font-family: "Chakra Petch", sans-serif;
-  background: #f7c9f3;
-  border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-}
-
-header .container .menus .buttons .themes-container .themes-name {
+.menus .buttons .themes-name {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   padding: 5%;
   background: #e6e6e6;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  -webkit-box-shadow: var(--btnShadow);
+          box-shadow: var(--btnShadow);
 }
 
-header .container .menus .buttons .themes-container .themes-name .themes-btn {
+.menus .buttons .themes-name .themes-btn {
   position: relative;
   width: 150px;
   height: 36px;
   margin: 5% 0;
   background: #f0f0f0;
   border: 1px solid #808080;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-  font-family: "Chakra Petch", sans-serif;
+  -webkit-box-shadow: var(--btnShadow);
+          box-shadow: var(--btnShadow);
+  font-family: var(--font);
   text-align: left;
   padding: 0 5%;
   font-size: 16px;
@@ -149,35 +151,25 @@ header .container .menus .buttons .themes-container .themes-name .themes-btn {
   line-height: 22px;
 }
 
-header .container .menus .buttons .themes-container .themes-name .themes-btn::after {
+.menus .buttons .themes-name .themes-btn::after {
   content: "__";
   position: absolute;
   top: 35%;
   left: 6%;
 }
 
-header .container .menus .buttons .themes-container .themes-name .themes-btn:hover {
+.menus .buttons .themes-name .themes-btn:hover {
   background: #fff4fd;
   border: 1px solid #cca6c9;
   -webkit-box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
           box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
 }
 
-header .container .menus .buttons .themes-container .show {
+.menus .buttons .show {
   display: block;
 }
 
-header .container .menus .buttons .themes-container .themes-arrow {
-  width: 36px;
-  height: 36px;
-  font-family: "Chakra Petch", sans-serif;
-  background: #f7c9f3;
-  border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-}
-
-header .container .menus .buttons .favorites-container {
+.menus .buttons .favorites-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -191,33 +183,34 @@ header .container .menus .buttons .favorites-container {
   height: 36px;
 }
 
-header .container .menus .buttons .favorites-container:hover {
-  outline: 1px dashed black;
-  outline-offset: -3px;
+.menus .buttons .favorites-container:hover {
+  outline: var(--outlined);
+  outline-offset: var(--offset);
 }
 
-header .container .menus .buttons .favorites-container .favorites {
+.menus .buttons .favorites-container .favorites {
   text-decoration: none;
   position: relative;
   font-size: 16px;
   color: #110038;
   letter-spacing: 0;
   line-height: 18px;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font);
 }
 
-header .container .menus .buttons .favorites-container .favorites::after {
+.menus .buttons .favorites-container .favorites::after {
   content: "__";
   position: absolute;
   top: 20%;
   left: 0;
 }
 
-header .container .menus .buttons .favorites-container .favorites:active {
+.menus .buttons .favorites-container .favorites:active {
   color: #110038;
 }
 
-header .container .search-container {
+/* search bar and search button */
+.search-container {
   width: 100%;
   height: 99px;
   margin-top: 25px;
@@ -226,16 +219,15 @@ header .container .search-container {
           box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 }
 
-header .container .search-container .search-title {
-  background-image: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
-  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+.search-container .search-title {
+  background-image: var(--gradient);
   width: 99.5%;
   height: 24px;
   margin: 0.1% 0.2%;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font);
 }
 
-header .container .search-container .searchbar {
+.search-container .searchbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -247,7 +239,7 @@ header .container .search-container .searchbar {
           align-items: center;
 }
 
-header .container .search-container .searchbar input {
+.search-container .searchbar input {
   width: 85%;
   height: 48px;
   margin: 1% 2%;
@@ -262,46 +254,46 @@ header .container .search-container .searchbar input {
   color: #110038;
   letter-spacing: 0;
   line-height: 22px;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font);
 }
 
-header .container .search-container .searchbar input::-webkit-input-placeholder {
+.search-container .searchbar input::-webkit-input-placeholder {
   padding: 0 0.1%;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font);
   font-size: 16px;
   color: #110038;
   letter-spacing: 0;
   line-height: 22px;
 }
 
-header .container .search-container .searchbar input:-ms-input-placeholder {
+.search-container .searchbar input:-ms-input-placeholder {
   padding: 0 0.1%;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font);
   font-size: 16px;
   color: #110038;
   letter-spacing: 0;
   line-height: 22px;
 }
 
-header .container .search-container .searchbar input::-ms-input-placeholder {
+.search-container .searchbar input::-ms-input-placeholder {
   padding: 0 0.1%;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font);
   font-size: 16px;
   color: #110038;
   letter-spacing: 0;
   line-height: 22px;
 }
 
-header .container .search-container .searchbar input::placeholder {
+.search-container .searchbar input::placeholder {
   padding: 0 0.1%;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font);
   font-size: 16px;
   color: #110038;
   letter-spacing: 0;
   line-height: 22px;
 }
 
-header .container .search-container .searchbar button {
+.search-container .searchbar button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -319,15 +311,13 @@ header .container .search-container .searchbar button {
           box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
 }
 
-header .container .search-container .searchbar button:active {
+.search-container .searchbar button:active {
   background: #f7c9f3;
   border: 1px solid #110038;
   -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
           box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 
-/* Buttons */
-/* Hover inner dashed border */
 .main-content {
   width: 1200px;
   margin: 0 auto;
@@ -350,10 +340,10 @@ header .container .search-container .searchbar button:active {
   height: 32px;
   font-size: 14px;
   letter-spacing: 0;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: var(--font);
 }
 
-.main-content .suggested-container {
+.suggested-container {
   display: -ms-grid;
   display: grid;
   justify-items: center;
@@ -369,7 +359,7 @@ header .container .search-container .searchbar button:active {
   /* height: 400px; */
 }
 
-.main-content .suggested-container .suggested-img {
+.suggested-container .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -388,7 +378,7 @@ header .container .search-container .searchbar button:active {
   height: 313px;
 }
 
-.main-content .suggested-container .suggested-img .img-title {
+.suggested-container .card .card-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -398,14 +388,13 @@ header .container .search-container .searchbar button:active {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-image: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
-  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  background-image: var(--gradient);
   width: 280px;
   height: 24px;
 }
 
-.main-content .suggested-container .suggested-img .img-title h2 {
-  font-family: "Chakra Petch", sans-serif;
+.suggested-container .card .card-title .main-title {
+  font-family: var(--font);
   color: #ffffff;
   height: 18px;
   font-size: 14px;
@@ -413,19 +402,39 @@ header .container .search-container .searchbar button:active {
   margin-left: 5px;
 }
 
-.main-content .suggested-container .suggested-img .img-title .close {
+.suggested-container .card .card-title .close {
   width: 16px;
   height: 14px;
   margin-right: 5px;
 }
 
-.main-content .suggested-container .suggested-img img {
+.suggested-container .card .card-body {
+  position: relative;
+}
+
+.suggested-container .card .card-body img {
   width: 280px;
   height: 280px;
 }
 
-/* Buttons */
-/* Hover inner dashed border */
+.suggested-container .card .card-body .more {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  height: 34px;
+  width: 81px;
+  background-color: var(--moreBtn);
+  border: 1px solid #4c2f99;
+  -webkit-box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
+  color: white;
+}
+
+.suggested-container .card .card-body .more:hover {
+  outline: var(--outlined);
+  outline-offset: var(--offset);
+}
+
 .trends-container {
   display: -ms-grid;
   display: grid;
@@ -435,6 +444,8 @@ header .container .search-container .searchbar button:active {
           align-items: center;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   -webkit-column-gap: 10px;
           column-gap: 10px;
   row-gap: 12px;
@@ -443,7 +454,7 @@ header .container .search-container .searchbar button:active {
   margin-top: 25px;
 }
 
-.trends-container .trend-container {
+.trends-container .trends-card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -453,42 +464,69 @@ header .container .search-container .searchbar button:active {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  /* .trend-title {
-            position: absolute;
-            width: 100%;
-            height: 24px;
-            background-image: $gradient;
-            z-index: 11;
-            left: 0;
-            bottom: 0;
-        } */
 }
 
-.trends-container .trend-container .trend {
+.trends-container .trends-card .trend-body {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 290px;
+  height: 304px;
+}
+
+.trends-container .trends-card .trend-body .trend-img {
+  position: absolute;
   width: 280px;
   height: 290px;
   padding: 1% 1%;
-  z-index: 10;
+  z-index: 1;
+  -webkit-transition: all 10s;
+  transition: all 10s;
 }
 
-.trends-container .trend-container .trend:hover {
-  outline: 1px dashed black;
-  outline-offset: -3px;
+.trends-container .trends-card .trend-body .trend-img:hover ~ .trend-bg {
+  display: inline-block;
 }
 
-.trends-container .trend-container .trend:hover ~ .trend-bg {
-  visibility: visible;
+.trends-container .trends-card .trend-body .trend-img:hover ~ .trend-title {
+  opacity: 1;
 }
 
-.trends-container .trend-container .trend-bg {
-  position: absolute;
-  visibility: hidden;
+.trends-container .trends-card .trend-body .trend-bg {
   width: 290px;
   height: 304px;
   background: #e6e6e6;
   -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
           box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  z-index: -1;
+  display: none;
+}
+
+.trends-container .trends-card .trend-body .trend-title {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 95%;
+  height: 24px;
+  background-image: var(--gradient);
+  z-index: 2;
+  left: 7px;
+  bottom: 10px;
+  font-family: var(--font);
+  font-size: 14px;
+  color: white;
+  opacity: 0;
 }
 
 * {
@@ -497,18 +535,36 @@ header .container .search-container .searchbar button:active {
 }
 
 html {
-  width: 100%;
-  height: 100%;
+  --bg: #fff4fd;
+  --btnBg: #f7c9f3;
+  --btnHover: #e6bbe2;
+  --btnBorder: 1px solid #110038;
+  --modeBg: #e6e6e6;
+  --modeHover: #fff4fd;
+  --gradient: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  --font: "Chakra Petch", sans-serif;
+  --btnShadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  --outlined: 1px dashed black;
+  --offset: -3px;
+  --moreBtn: #3a72db;
 }
 
-html body {
-  width: 100%;
-  height: 100%;
-  background-color: #fff4fd;
-  font-family: "Chakra Petch", sans-serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  /*     display: flex;
-        flex-direction: column; */
+body {
+  background-color: var(--bg);
+}
+
+html[data-theme="dark"] {
+  --bg: #110038;
+  --btnBg: #ee3efe;
+  --btnHover: #e6bbe2;
+  --btnBorder: 1px solid #110038;
+  --modeBg: #e6e6e6;
+  --modeHover: #fff4fd;
+  --gradient: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+  --font: "Chakra Petch", sans-serif;
+  --btnShadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  --outlined: 1px dashed black;
+  --offset: -3px;
+  --moreBtn: #3a72db;
 }
 /*# sourceMappingURL=style.css.map */

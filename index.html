@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,26 +12,26 @@
         <script src="./scripts/init.js"></script>
         <title>gifOS</title>
     </head>
-    <body>
+    <body class="light">
         <header>
-            <div class="bienvenidos">
+            <div class="bienvenidos light">
                 <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p>
             </div>
             <div class="container">
                 <nav class="menus">
                     <div class="logo">
-                        <img src="./img/gifOF_logo.png" alt="" />
+                        <img src="./img/gifOF_logo.png" alt="gifOS" id="logo" />
                     </div>
                     <div class="buttons">
-                        <button class="new-btn">Crear Guifos</button>
+                        <button class="btnNew light">Crear Guifos</button>
 
                         <div class="themes-container" id="themes-container">
-                            <button class="elegir" id="elegir">Elegir Tema</button>
+                            <button class="choose light" id="elegir">Elegir Tema</button>
                             <div class="themes-name" id="themes">
-                                <button class="themes-btn">Sailor Day</button>
-                                <button class="themes-btn">Sailor Night</button>
+                                <button class="themes-btn light" id="light">Sailor Day</button>
+                                <button class="themes-btn light" id="dark">Sailor Night</button>
                             </div>
-                            <button class="themes-arrow" id="dropdownArrow">
+                            <button class="arrow light lightBTN" id="dropdownArrow">
                                 <img src="./img/dropdown.svg" alt="" id="arrow" />
                             </button>
                         </div>
@@ -42,12 +42,12 @@
                     </div>
                 </nav>
                 <div class="search-container">
-                    <div class="search-title">
+                    <div class="search-title light">
                         <p>Buscar</p>
                     </div>
                     <div class="searchbar">
-                        <input type="text" name="busqueda" id="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…" />
-                        <button id="search-btn" class="aceptar-btn"><img src="./img/lupa_inactive.svg" alt="lupa" />Buscar</button>
+                        <input type="text" name="busqueda" id="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…" required />
+                        <button id="search-btn" class="aceptar-btn light"><img src="./img/lupa_inactive.svg" alt="lupa" />Buscar</button>
                     </div>
                 </div>
             </div>
@@ -56,134 +56,37 @@
         <div class="main-content">
             <article class="suggested" id="suggested">
                 <h1>Hoy te sugerimos</h1>
-                <div class="suggested-container" id="suggested-container"></div>
+                <div class="suggested-container" id="suggested-container">
+                    <template id="template">
+                        <div class="card">
+                            <div class="card-title light">
+                                <h2 class="main-title"></h2>
+                                <img src="./img/close.svg" class="close" />
+                            </div>
+                            <div class="card-body">
+                                <img src="#" class="main-img" />
+                                <button class="more">Ver Mas...</button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
             </article>
             <article class="trends" id="trends">
                 <h1>Tendecias</h1>
                 <div class="trends-container" id="trends-container">
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
-                    <div class="trend-container">
-                        <img src="#" alt="" class="trend" />
-                        <div class="trend-bg"></div>
-                        <div class="trend-title"></div>
-                    </div>
+                    <template id="trend-template">
+                        <div class="trends-card">
+                            <div class="trend-body">
+                                <img src="#" class="trend-img" />
+                                <h2 class="trend-title light"></h2>
+                                <div class="trend-bg"></div>
+                            </div>
+                        </div>
+                    </template>
                 </div>
             </article>
         </div>
         <script src="./scripts/getGifs.js"></script>
+        <script src="./scripts/themes.js"></script>
     </body>
 </html>

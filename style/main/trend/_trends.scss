@@ -1,0 +1,69 @@
+.trends-container {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    column-gap: 10px;
+    row-gap: 12px;
+    max-width: 100%;
+    height: 400px;
+    margin-top: 25px;
+
+    .trends-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .trend-body {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 290px;
+            height: 304px;
+
+            .trend-img {
+                position: absolute;
+                width: 280px;
+                height: 290px;
+                padding: 1% 1%;
+                z-index: 1;
+                transition: all 10s;
+
+                &:hover ~ .trend-bg {
+                    display: inline-block;
+                }
+
+                &:hover ~ .trend-title {
+                    opacity: 1;
+                }
+            }
+
+            .trend-bg {
+                width: 290px;
+                height: 304px;
+                background: #e6e6e6;
+                box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+                z-index: -1;
+                display: none;
+            }
+
+            .trend-title {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                width: 95%;
+                height: 24px;
+                background-image: var(--gradient);
+                z-index: 2;
+                left: 7px;
+                bottom: 10px;
+                font-family: var(--font);
+                font-size: 14px;
+                color: white;
+                opacity: 0;
+            }
+        }
+    }
+}

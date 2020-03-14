@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const trends = document.getElementById("trends-container");
     const trend = document.getElementsByClassName("trend");
 
+    /* document.getElementById("search-btn").addEventListener("click", () => {
+        alert("hello world");
+    }); */
+
     Object.prototype.fetchData = async function(url) {
         let data = await fetch(url);
         let parsedData = await data.json(data);

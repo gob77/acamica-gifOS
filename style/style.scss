@@ -1,22 +1,43 @@
-@import "./_variables";
-@import "./bienvenidos/_bienvenidos.scss";
-@import "./main/_main.scss";
-@import "./main/trends/trends";
+@import "./header/header";
+@import "./main/main";
+@import "./main/suggested/suggested";
+@import "./main/trend/trends";
 
 * {
     margin: 0;
     padding: 0;
 }
+
 html {
-    width: 100%;
-    height: 100%;
-    body {
-        width: 100%;
-        height: 100%;
-        background-color: $bgColor;
-        font-family: $fonts;
-        box-sizing: border-box;
-        /*     display: flex;
-        flex-direction: column; */
-    }
+    --bg: #fff4fd;
+    --btnBg: #f7c9f3;
+    --btnHover: #e6bbe2;
+    --btnBorder: 1px solid #110038;
+    --modeBg: #e6e6e6;
+    --modeHover: #fff4fd;
+    --gradient: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+    --font: "Chakra Petch", sans-serif;
+    --btnShadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    --outlined: 1px dashed black;
+    --offset: -3px;
+    --moreBtn: #3a72db;
+}
+
+body {
+    background-color: var(--bg);
+}
+
+html[data-theme="dark"] {
+    --bg: #110038;
+    --btnBg: #ee3efe;
+    --btnHover: #e6bbe2;
+    --btnBorder: 1px solid #110038;
+    --modeBg: #e6e6e6;
+    --modeHover: #fff4fd;
+    --gradient: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+    --font: "Chakra Petch", sans-serif;
+    --btnShadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    --outlined: 1px dashed black;
+    --offset: -3px;
+    --moreBtn: #3a72db;
 }
