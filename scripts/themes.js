@@ -1,21 +1,31 @@
 const themesContainer = document.getElementById("themes-container");
-const themeLight = document.getElementById("light");
-const themeDark = document.getElementById("dark");
 const logo = document.getElementById("logo");
-const body = document.getElementsByTagName("body")[0];
-const lightClass = document.getElementsByClassName("light");
-const lightArr = [...lightClass];
-const html = document.getElementsByTagName("html")[0];
+const themesBTN = [...document.getElementsByClassName("themes-btn")];
 
-themeLight.addEventListener("click", () => {
-    document.documentElement.setAttribute("data-theme", "light");
-    logo.src = "./img/gifOF_logo.png";
+themesBTN.forEach(index => {
+    index.addEventListener("click", changeThemeTo);
 });
 
-themeDark.addEventListener("click", () => {
-    document.documentElement.setAttribute("data-theme", "dark");
-    logo.src = "./img/gifOF_logo_dark.png";
-});
+const themes = {
+    light: () => {
+        logo.src = "./img/gifOF_logo.png";
+        document.documentElement.setAttribute("data-theme", "light");
+    },
+    dark: () => {
+        logo.src = "./img/gifOF_logo_dark.png";
+        document.documentElement.setAttribute("data-theme", "dark");
+    }
+};
+
+function changeThemeTo(event) {
+    let target = event.target;
+
+    if (target.id === "light") {
+        return themes.light();
+    } else if (target.id === "dark") {
+        return themes.dark();
+    }
+}
 
 themesContainer.addEventListener("click", event => {
     const themes = document.getElementById("themes");

@@ -32,6 +32,8 @@ const getGifs = {
 function showData(caller, data) {
     let random_container = document.getElementById("suggested-container");
     let trend_container = document.getElementById("trends-container");
+    let results_container = document.getElementById("results-container");
+    let heading = document.getElementById("results-heading");
 
     if (caller === "random") {
         let template = document.getElementById("template");
@@ -50,8 +52,36 @@ function showData(caller, data) {
             trend_container.appendChild(clone);
         });
     } else if (caller === "search") {
-        console.log(data);
+        heading.textContent = `Mostrando resultados para: ${query.value.toUpperCase()}`;
+        document.getElementById("suggested").style.display = "none";
+        document.getElementById("trends").style.display = "none";
+        console.log(logo.parentNode);
+        let back = document.createElement("button");
+        let arrow = document.createElement("img");
+
+        back.setAttribute("onclick", "getBack()");
+
+        arrow.src = "./img/arrow.svg";
+        back.appendChild(arrow);
+        logo.parentNode.insertBefore(back, logo);
+
+        history.pushState(null, null, "results.html");
+
+        data.data.forEach(index => {
+            let template = document.getElementById("results-template");
+            let clone = document.importNode(template.content, true);
+
+            clone.querySelector(".results-img").src = index.images.fixed_height.url;
+            clone.querySelector(".results-title").textContent = `#${index.title}`;
+            results_container.appendChild(clone);
+        });
+        document.getElementById("results").style.display = "inline";
     }
+}
+
+function getBack() {
+    console.log("executed");
+    history.go(-1);
 }
 
 btn.addEventListener("click", () => {

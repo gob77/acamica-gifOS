@@ -97,6 +97,9 @@ header {
             box-shadow: var(--btnShadow);
 
             .themes-btn {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
                 position: relative;
                 width: 150px;
                 height: 36px;
