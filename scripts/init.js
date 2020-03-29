@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    function getRandoms(n) {
+    /* function getRandoms(n) {
         getGifs.randoms();
         if (n < 1) {
             return;
@@ -12,5 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     getRandoms(4);
 
-    getGifs.trends();
+    getGifs.trends(); */
+    callFetch();
 });
