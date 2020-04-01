@@ -1,4 +1,3 @@
-const themesContainer = document.getElementById("themes-container");
 const logo = document.getElementById("logo");
 const themesBTN = [...document.getElementsByClassName("themes-btn")];
 
@@ -27,7 +26,14 @@ function changeThemeTo(event) {
     }
 }
 
-themesContainer.addEventListener("click", event => {
+/* dropdown functonality */
+
+document.addEventListener("click", event => {
     const themes = document.getElementById("themes");
-    themes.classList.toggle("show");
+    const target = event.target;
+    if (target.parentNode.id === "themes-container") {
+        themes.classList.add("show");
+    } else {
+        themes.classList.remove("show");
+    }
 });

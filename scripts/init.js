@@ -1,17 +1,2 @@
-document.addEventListener("DOMContentLoaded", () => {
-    /* function getRandoms(n) {
-        getGifs.randoms();
-        if (n < 1) {
-            return;
-        } else if (n === 1) {
-            return 1;
-        }
-
-        return getRandoms(n - 1);
-    }
-
-    getRandoms(4);
-
-    getGifs.trends(); */
-    callFetch();
-});
+const api_key = "api_key=wi0q59XfKI285mmhSNvmSSBSBdNi8NSo";
+const trends = "http://api.giphy.com/v1/gifs/trending?limit=20&";

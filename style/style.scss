@@ -1,5 +1,4 @@
 @import "./header/header";
-/* @import "./main/main"; */
 @import "./main/suggested/suggested";
 @import "./main/trend/trends";
 @import "./main/results/results";
@@ -23,31 +22,22 @@ html {
     --outlined: 1px dashed black;
     --offset: -3px;
     --moreBtn: #3a72db;
+    --favs: #110038;
 }
 
 body {
     background-color: var(--bg);
-    transition: all 5s;
+    transition: all 0.3s;
 }
 
 .main-content {
-    width: 1200px;
+    width: 90%;
+    height: auto;
     margin: 0 auto;
-
-    /*  h1 {
-        display: flex;
-        align-items: center;
-        background: #fffafe;
-        border: 1px solid #e6bbe2;
-        box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
-        color: #110038;
-        padding-left: 1%;
-        max-width: 100%;
-        height: 32px;
-        font-size: 14px;
-        letter-spacing: 0;
-        font-family: var(--font);
-    } */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 html[data-theme="dark"] {
@@ -60,7 +50,8 @@ html[data-theme="dark"] {
     --gradient: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
     --font: "Chakra Petch", sans-serif;
     --btnShadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-    --outlined: 1px dashed black;
+    --outlined: 1px dashed white;
     --offset: -3px;
     --moreBtn: #3a72db;
+    --favs: #ffffff;
 }

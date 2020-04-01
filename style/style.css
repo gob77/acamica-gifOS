@@ -19,6 +19,7 @@ header {
 header .bienvenidos {
   background-image: var(--gradient);
   width: 100%;
+  color: var(--favs);
 }
 
 header .container {
@@ -69,7 +70,10 @@ header .container .logo img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 38%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 30%;
 }
 
 .menus .buttons .btnNew {
@@ -80,6 +84,7 @@ header .container .logo img {
   border: var(--btnBorder);
   -webkit-box-shadow: var(--btnShadow);
           box-shadow: var(--btnShadow);
+  color: var(--favs);
 }
 
 .menus .buttons .btnNew:hover {
@@ -95,6 +100,7 @@ header .container .logo img {
   border: var(--btnBorder);
   -webkit-box-shadow: var(--btnShadow);
           box-shadow: var(--btnShadow);
+  color: var(--favs);
 }
 
 .menus .buttons .arrow {
@@ -105,6 +111,7 @@ header .container .logo img {
   border: var(--btnBorder);
   -webkit-box-shadow: var(--btnShadow);
           box-shadow: var(--btnShadow);
+  color: var(--favs);
 }
 
 .menus .buttons .themes-container {
@@ -201,7 +208,7 @@ header .container .logo img {
   text-decoration: none;
   position: relative;
   font-size: 16px;
-  color: #110038;
+  color: var(--favs);
   letter-spacing: 0;
   line-height: 18px;
   font-family: var(--font);
@@ -234,9 +241,27 @@ header .container .logo img {
   height: 24px;
   margin: 0.1% 0.2%;
   font-family: var(--font);
+  color: var(--favs);
 }
 
 .search-container .searchbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.search-container .searchbar .input-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -246,6 +271,47 @@ header .container .logo img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+}
+
+.search-container .searchbar .suggested-search {
+  z-index: 20;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-container .searchbar .suggested-search button {
+  margin: 10px auto;
+  margin-left: 4.6%;
+  width: 84.9%;
+  border: 1px solid #110038;
+  font-family: var(--font);
+  font-size: 18px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 1%;
+}
+
+.search-container .searchbar .suggested-search button:hover {
+  outline: var(--outlined);
+  outline-offset: var(--offset);
 }
 
 .search-container .searchbar input {
@@ -327,9 +393,12 @@ header .container .logo img {
           box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 
-/* @import "./main/main"; */
+.search-container .show {
+  display: block;
+}
+
 .suggested {
-  display: static;
+  width: 100%;
 }
 
 .suggested h1 {
@@ -363,7 +432,7 @@ header .container .logo img {
       grid-template-columns: repeat(4, 1fr);
   -webkit-column-gap: 12px;
           column-gap: 12px;
-  max-width: 100%;
+  width: 100%;
   margin: 20px 0;
   /* height: 400px; */
 }
@@ -445,7 +514,9 @@ header .container .logo img {
 }
 
 .trends {
-  display: static;
+  width: 100%;
+  height: auto;
+  margin-bottom: 100px;
 }
 
 .trends h1 {
@@ -482,8 +553,8 @@ header .container .logo img {
   -webkit-column-gap: 10px;
           column-gap: 10px;
   row-gap: 12px;
-  max-width: 100%;
-  height: 400px;
+  width: 100%;
+  height: auto;
   margin-top: 25px;
 }
 
@@ -568,6 +639,9 @@ header .container .logo img {
 }
 
 .results {
+  width: 100%;
+  height: auto;
+  margin-bottom: 100px;
   display: none;
 }
 
@@ -605,8 +679,8 @@ header .container .logo img {
   -webkit-column-gap: 10px;
           column-gap: 10px;
   row-gap: 12px;
-  max-width: 100%;
-  height: 400px;
+  width: 100%;
+  height: auto;
   margin-top: 25px;
 }
 
@@ -710,31 +784,32 @@ html {
   --outlined: 1px dashed black;
   --offset: -3px;
   --moreBtn: #3a72db;
+  --favs: #110038;
 }
 
 body {
   background-color: var(--bg);
-  -webkit-transition: all 5s;
-  transition: all 5s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .main-content {
-  width: 1200px;
+  width: 90%;
+  height: auto;
   margin: 0 auto;
-  /*  h1 {
-        display: flex;
-        align-items: center;
-        background: #fffafe;
-        border: 1px solid #e6bbe2;
-        box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
-        color: #110038;
-        padding-left: 1%;
-        max-width: 100%;
-        height: 32px;
-        font-size: 14px;
-        letter-spacing: 0;
-        font-family: var(--font);
-    } */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 html[data-theme="dark"] {
@@ -747,8 +822,9 @@ html[data-theme="dark"] {
   --gradient: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
   --font: "Chakra Petch", sans-serif;
   --btnShadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-  --outlined: 1px dashed black;
+  --outlined: 1px dashed white;
   --offset: -3px;
   --moreBtn: #3a72db;
+  --favs: #ffffff;
 }
 /*# sourceMappingURL=style.css.map */

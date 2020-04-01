@@ -9,6 +9,7 @@ header {
     .bienvenidos {
         background-image: var(--gradient);
         width: 100%;
+        color: var(--favs);
     }
 
     .container {
@@ -40,7 +41,8 @@ header {
     .buttons {
         display: flex;
         align-items: center;
-        width: 38%;
+        justify-content: flex-end;
+        width: 30%;
 
         .btnNew {
             width: 144px;
@@ -49,6 +51,7 @@ header {
             background: var(--btnBg);
             border: var(--btnBorder);
             box-shadow: var(--btnShadow);
+            color: var(--favs);
 
             &:hover {
                 outline: var(--outlined);
@@ -63,6 +66,7 @@ header {
             background: var(--btnBg);
             border: var(--btnBorder);
             box-shadow: var(--btnShadow);
+            color: var(--favs);
         }
 
         .arrow {
@@ -72,6 +76,7 @@ header {
             background: var(--btnBg);
             border: var(--btnBorder);
             box-shadow: var(--btnShadow);
+            color: var(--favs);
         }
 
         .themes-container {
@@ -149,7 +154,7 @@ header {
                 text-decoration: none;
                 position: relative;
                 font-size: 16px;
-                color: #110038;
+                color: var(--favs);
                 letter-spacing: 0;
                 line-height: 18px;
                 font-family: var(--font);
@@ -184,12 +189,52 @@ header {
         height: 24px;
         margin: 0.1% 0.2%;
         font-family: var(--font);
+        color: var(--favs);
     }
 
     .searchbar {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: relative;
+
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .suggested-search {
+            z-index: 20;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            position: absolute;
+            background: #e6e6e6;
+            box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+            display: none;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+
+            button {
+                margin: 10px auto;
+                margin-left: 4.6%;
+                width: 84.9%;
+                border: 1px solid #110038;
+                font-family: var(--font);
+                font-size: 18px;
+                justify-content: space-between;
+                padding-left: 1%;
+
+                &:hover {
+                    outline: var(--outlined);
+                    outline-offset: var(--offset);
+                }
+            }
+        }
 
         input {
             width: 85%;
@@ -232,5 +277,9 @@ header {
                 box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
             }
         }
+    }
+
+    .show {
+        display: block;
     }
 }
