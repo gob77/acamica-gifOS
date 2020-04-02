@@ -1,0 +1,96 @@
+@import "./galeria/galeria";
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .backArrow {
+        width: 24px;
+        height: 24px;
+        margin-right: 15px;
+    }
+
+    .mainCard {
+        width: 684px;
+        height: 386;
+        background: #e6e6e6;
+        box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: var(--font);
+
+        .title {
+            display: inline-block;
+            background-image: var(--gradient);
+            width: 99%;
+            font-family: var(--font);
+            font-size: 16px;
+            margin-top: 2px;
+        }
+
+        .bodyTitle {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            margin: 20px 0;
+
+            img {
+                margin-left: 2%;
+            }
+
+            h2 {
+                margin-left: 3%;
+                font-family: var(--font);
+                font-size: 16px;
+                color: #110038;
+                letter-spacing: 0;
+                line-height: 22px;
+            }
+        }
+
+        .cardBody {
+            width: 80%;
+            margin: 0 auto;
+            font-size: 14px;
+            color: #110038;
+            letter-spacing: 0;
+            line-height: 20px;
+
+            ol {
+                width: 100%;
+                margin: 5% 3%;
+                counter-reset: item;
+
+                li {
+                    display: block;
+                }
+
+                li::before {
+                    content: counter(item) ") ";
+                    counter-increment: item;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .cardFooter {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+
+            button {
+                width: 144px;
+                height: 36px;
+                margin: 2% 2%;
+                font-family: var(--font);
+                background: #fff4fd;
+                border: 1px solid #110038;
+                box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+            }
+        }
+    }
+}

@@ -49,7 +49,7 @@ header .container .logo {
           align-items: center;
 }
 
-header .container .logo img {
+header .container .logo .gifosLogo {
   width: 102.6px;
   height: 64px;
 }
@@ -762,6 +762,180 @@ header .container .logo img {
   font-size: 14px;
   color: white;
   opacity: 0;
+}
+
+.misGuifos {
+  margin-top: 50px;
+  width: 90%;
+}
+
+.misGuifos h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+          box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  color: #110038;
+  padding-left: 1%;
+  max-width: 100%;
+  height: 32px;
+  font-size: 14px;
+  letter-spacing: 0;
+  font-family: var(--font);
+  font-weight: normal;
+}
+
+.misGuifos .guifosContainer {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  row-gap: 12px;
+  width: 100%;
+  height: auto;
+  margin-top: 25px;
+}
+
+.misGuifos .guifosContainer .test {
+  width: 280px;
+  height: 304px;
+  background-color: salmon;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .backArrow {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+body .mainCard {
+  width: 684px;
+  height: 386;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: var(--font);
+}
+
+body .mainCard .title {
+  display: inline-block;
+  background-image: var(--gradient);
+  width: 99%;
+  font-family: var(--font);
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+body .mainCard .bodyTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+  margin: 20px 0;
+}
+
+body .mainCard .bodyTitle img {
+  margin-left: 2%;
+}
+
+body .mainCard .bodyTitle h2 {
+  margin-left: 3%;
+  font-family: var(--font);
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+body .mainCard .cardBody {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+body .mainCard .cardBody ol {
+  width: 100%;
+  margin: 5% 3%;
+  counter-reset: item;
+}
+
+body .mainCard .cardBody ol li {
+  display: block;
+}
+
+body .mainCard .cardBody ol li::before {
+  content: counter(item) ") ";
+  counter-increment: item;
+  font-weight: bold;
+}
+
+body .mainCard .cardFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+}
+
+body .mainCard .cardFooter button {
+  width: 144px;
+  height: 36px;
+  margin: 2% 2%;
+  font-family: var(--font);
+  background: #fff4fd;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 
 * {

@@ -75,8 +75,9 @@ document.addEventListener("click", event => {
     let btn = document.getElementById("search-btn");
 
     suggestions.forEach((index, currentValue) => {
+        shuffle(tags);
         let random = Math.floor(Math.random() * tags.length) + currentValue;
-        index.textContent = tags[random];
+        index.textContent = tags[currentValue];
     });
 
     if (target.tagName === "INPUT") {
@@ -87,3 +88,18 @@ document.addEventListener("click", event => {
         suggestedSearch.style.display = "none";
     }
 });
+
+/* Shuffling tags array for random order to get suggestions name */
+
+function shuffle(array) {
+    var m = array.length,
+        t,
+        i;
+    while (m > 0) {
+        i = Math.floor(Math.random() * m--);
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+    }
+    return array;
+}
