@@ -14,12 +14,12 @@ body {
 
     .mainCard {
         width: 684px;
-        height: 386;
+        height: 386px;
         background: #e6e6e6;
         box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
-        display: flex;
+        display: none;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         font-family: var(--font);
 
@@ -29,7 +29,7 @@ body {
             width: 99%;
             font-family: var(--font);
             font-size: 16px;
-            margin-top: 2px;
+            margin-top: 0;
         }
 
         .bodyTitle {
@@ -90,6 +90,107 @@ body {
                 background: #fff4fd;
                 border: 1px solid #110038;
                 box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+            }
+        }
+    }
+
+    .preview {
+        width: 860px;
+        height: 548px;
+        background: #e6e6e6;
+        box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font);
+        padding: 5px 0;
+
+        .preview_title {
+            display: inline-block;
+            background-image: var(--gradient);
+            width: 99%;
+            font-family: var(--font);
+            font-size: 16px;
+            margin-top: 0;
+        }
+
+        .preview_body {
+            width: 832px;
+            height: 434px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .preview_footer {
+            display: flex;
+            justify-content: flex-end;
+            width: 68%;
+            margin-bottom: 20px;
+            background: #e6e6e6;
+
+            .btn_container {
+                display: flex;
+
+                .camera {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 36px;
+                    height: 36px;
+                }
+
+                .btn_group {
+                    display: flex;
+
+                    .camera,
+                    .cta_button {
+                        background: #ff6161;
+                        border: 1px solid #110038;
+                        box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+                    }
+                }
+
+                .timer {
+                    width: 124px;
+                    height: 36px;
+                    background: #ffffff;
+                    border: 1px solid #979797;
+                    box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            .stop {
+                display: none;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .capture {
+                display: none;
+            }
+
+            .upload {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            button {
+                width: 180px;
+                height: 36px;
+                background: #f7c9f3;
+                border: 1px solid #110038;
+                box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+                display: flex;
+
+                span {
+                    display: inline-block;
+                    width: 75%;
+                }
             }
         }
     }
