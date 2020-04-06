@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="./style/style.css" />
         <link rel="stylesheet" href="./style/misGuifos/misguifos.css" />
         <link rel="shortcut icon" href="./img/gifOF_logo.png" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet" />
         <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
         <title>gifOS</title>
     </head>
@@ -54,7 +55,7 @@
 
             <div class="preview" id="preview">
                 <div class="preview_title">
-                    <span>Un Chequeo Antes de Empezar</span>
+                    <span id="preview_title">Un Chequeo Antes de Empezar</span>
                 </div>
                 <div class="preview_body">
                     <video src="" autoplay></video>
@@ -75,9 +76,32 @@
 
                     <div class="btn_container upload" id="upload_container">
                         <span class="timer" id="timer_upload">00:00:00:00</span>
-                        <img src="./img/forward.svg" alt="" />
-                        <button>Reptir captura</button>
-                        <button>Subir Guifo</button>
+                        <div class="progres_bar">
+                            <div class="progres_bar__img">
+                                <img src="./img/forward.svg" alt="" />
+                            </div>
+                            <div class="bar">
+                                <div class="unit colored"></div>
+                                <div class="unit colored"></div>
+                                <div class="unit colored"></div>
+                                <div class="unit colored"></div>
+                                <div class="unit colored"></div>
+                                <div class="unit colored"></div>
+                                <div class="unit colored"></div>
+                                <div class="unit colored"></div>
+                                <div class="unit colored"></div>
+                                <div class="unit colored"></div>
+                                <div class="unit"></div>
+                                <div class="unit"></div>
+                                <div class="unit"></div>
+                                <div class="unit"></div>
+                                <div class="unit"></div>
+                            </div>
+                        </div>
+                        <div class="upload_btn___container">
+                            <button class="upload_btn" id="repeat">Reptir captura</button>
+                            <button class="upload_btn" id="upload">Subir Guifo</button>
+                        </div>
                     </div>
                 </div>
             </div>

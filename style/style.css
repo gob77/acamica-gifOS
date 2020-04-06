@@ -978,15 +978,101 @@ body .preview .preview_body {
 }
 
 body .preview .preview_footer {
-  width: 97%;
-  background-color: salmon;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  width: 68%;
   margin-bottom: 20px;
+  background: #e6e6e6;
+}
+
+body .preview .preview_footer .btn_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .preview .preview_footer .btn_container .camera {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 36px;
+  height: 36px;
+}
+
+body .preview .preview_footer .btn_container .btn_group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .preview .preview_footer .btn_container .btn_group .camera,
+body .preview .preview_footer .btn_container .btn_group .cta_button {
+  background: #ff6161;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+}
+
+body .preview .preview_footer .btn_container .timer {
+  width: 124px;
+  height: 36px;
+  background: #ffffff;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .preview .preview_footer .stop {
+  display: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+body .preview .preview_footer .capture {
+  display: none;
+}
+
+body .preview .preview_footer .upload {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .preview .preview_footer .upload .progres_bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .preview .preview_footer .upload .progres_bar .bar div {
+  width: 12px;
+  height: 20px;
+  background: #999999;
 }
 
 body .preview .preview_footer button {
