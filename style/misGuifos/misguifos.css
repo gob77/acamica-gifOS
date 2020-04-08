@@ -211,6 +211,17 @@ body .preview .preview_body {
           justify-content: center;
 }
 
+body .preview .preview_body .preview_img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 832px;
+  height: 434px;
+}
+
 body .preview .preview_footer {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,3 +1,9 @@
+(function checkThemes() {
+    let theme = localStorage.getItem("theme");
+    let html = document.documentElement;
+    html.setAttribute("data-theme", theme);
+})();
+
 document.addEventListener("DOMContentLoaded", async () => {
     const capture = document.getElementById("capture_container");
     const stop = document.getElementById("stop");
@@ -11,26 +17,33 @@ document.addEventListener("DOMContentLoaded", async () => {
     const uploadContainer = document.getElementById("upload_container");
     const repeatBTN = document.getElementById("repeat");
     const uploadBTN = document.getElementById("upload");
+    const previewGif = document.getElementById("preview_gif");
     const api_key = "api_key=wi0q59XfKI285mmhSNvmSSBSBdNi8NSo";
     let capturedGif;
+    let recorder;
+    let streamTest;
+    let gifURL;
 
     startContainer.addEventListener("click", (event) => {
         let target = event.target;
 
         if (target.id === "start") {
             setStyles();
-            getVideo();
         } else if (target.id === "cancel") {
             mainCard.style.display = "none";
         }
-
-        function setStyles() {
-            mainCard.style.display = "none";
-            preview.style.display = "flex";
-            capture.style.display = "flex";
-            previewTitle.textContent = "Capturando Tu Guifo";
-        }
     });
+
+    function setStyles() {
+        mainCard.style.display = "none";
+        uploadContainer.style.display = "none";
+        previewGif.src = "#";
+        preview.style.display = "flex";
+        capture.style.display = "flex";
+        video.style.display = "flex";
+        previewTitle.textContent = "Capturando Tu Guifo";
+        getVideo();
+    }
 
     function getVideo() {
         navigator.mediaDevices
@@ -41,55 +54,64 @@ document.addEventListener("DOMContentLoaded", async () => {
                 },
             })
             .then((stream) => {
+                streamTest = stream;
                 video.srcObject = stream;
-                let recorder = new GifRecorder(stream, {
+                recorder = new GifRecorder(stream, {
                     type: "gif",
-                    width: 1280,
-                    height: 720,
-                    frameRate: 500,
-                    quality: 50,
-                });
-
-                capture.addEventListener("click", (time) => {
-                    capture.style.display = "none";
-                    stopContainer.style.display = "flex";
-                    getTimer();
-                    recorder.record();
-                });
-
-                stop.addEventListener("click", async () => {
-                    alert("stoped recording");
-                    await recorder.stop((blob) => {
-                        let url = URL.createObjectURL(blob);
-                        stopContainer.style.display = "none";
-                        uploadContainer.style.display = "flex";
-
-                        capturedGif = blob;
-                        printCapturedGif(url);
-                    });
+                    width: 720,
+                    height: 480,
+                    frameRate: 120,
+                    quality: 30,
                 });
             });
     }
 
-    repeatBTN.addEventListener("click", getVideo);
+    capture.addEventListener("click", (time) => {
+        capture.style.display = "none";
+        stopContainer.style.display = "flex";
+        getTimer();
+        recorder.record();
+    });
+
+    stop.addEventListener("click", async () => {
+        streamTest.stop();
+        alert("stoped recording");
+        await recorder.stop((blob) => {
+            gifURL = URL.createObjectURL(blob);
+
+            video.style.display = "none";
+
+            previewGif.src = gifURL;
+
+            stopContainer.style.display = "none";
+            uploadContainer.style.display = "flex";
+
+            capturedGif = new FormData();
+
+            capturedGif.append("file", blob, "myGif.gif");
+
+            recorder.clearRecordedData();
+        });
+    });
+
+    repeatBTN.addEventListener("click", setStyles);
 
     uploadBTN.addEventListener("click", async () => {
-        console.log(capturedGif);
+        /* console.log(capturedGif.get("file")); */
 
-        let data = new FormData();
+        printCapturedGif();
 
-        data.append("file", capturedGif);
-
-        const options = {
+        let options = {
             method: "POST",
-            body: data.file,
+            body: capturedGif,
         };
 
         let endPoint = `https://upload.giphy.com/v1/gifs?${api_key}`;
 
         let upload = await fetch(endPoint, options);
-        let response = await upload.json();
-        console.log(response);
+        let resp = await upload.json();
+
+        console.log(resp);
     });
 
     function getTimer() {
@@ -113,36 +135,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         let container = document.getElementById("guifosContainer");
 
         let img = document.createElement("img");
-        img.src = url;
+        img.src = gifURL;
 
         container.appendChild(img);
     }
 });
-
-/* fetch("https://upload.giphy.com/v1/gifs" + "?api_key=" + "znXEZG58twcEoPcbw5gG4a7F9I990uaL", {
-    method: "POST",
-    body: form,
-})
-    .then((res) => {
-        console.log(res.status);
-        if (res.status != 200) {
-            // Mostrar que hubo un error subiendo tu Guifo
-        }
-        return res.json();
-    })
-    .then((data) => {
-        var dataId = data.data.id;
-        fetch("http://api.giphy.com/v1/gifs/" + dataId + "?&api_key=" + "znXEZG58twcEoPcbw5gG4a7F9I990uaL");
-        then((res) => {
-            console.log(res.status);
-            if (res.status != 200) {
-                // Mostrar que hubo un error subiendo tu Guifo
-            }
-            return res.json();
-        }).catch((error) => {
-            // Mostrar que hubo un error subiendo tu Guifo
-            console.error("Error:", error);
-        });
-        console.log(form.get("file"));
-    });
- */

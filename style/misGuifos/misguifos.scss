@@ -120,6 +120,13 @@ body {
             height: 434px;
             display: flex;
             justify-content: center;
+
+            .preview_img {
+                display: flex;
+                justify-content: center;
+                width: 832px;
+                height: 434px;
+            }
         }
 
         .preview_footer {
