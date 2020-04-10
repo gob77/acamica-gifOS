@@ -1,9 +1,9 @@
-const search = "http://api.giphy.com/v1/gifs/search?limit=16&";
 const searchBar = document.getElementById("search");
 const suggestedSearch = document.getElementById("suggested-search");
 const suggestions = [...document.getElementsByClassName("suggestions")];
-const tags = ["action", "animals", "anime", "art and desing", "cartoons and comics", "celebrities", "emotions", "food and drink", "gaming", "memes", "movies", "music", "nature", "news and politics", "reactions", "science", "sports", "cars", "tv series"];
 const searchBtn = document.getElementById("search-btn");
+const tags = ["action", "animals", "anime", "art and desing", "cartoons and comics", "celebrities", "emotions", "food and drink", "gaming", "memes", "movies", "music", "nature", "news and politics", "reactions", "science", "sports", "cars", "tv series"];
+
 let printed = false;
 
 /* Search gif by user input or suggested search */
@@ -21,7 +21,7 @@ searchBtn.addEventListener("click", () => {
     searchGifs(`${search}${api_key}&q=${convertedString}`, value);
 });
 
-suggestions.forEach(index => {
+suggestions.forEach((index) => {
     index.addEventListener("click", () => {
         searchGifs(`${search}${api_key}&q=${index.textContent}`, index.textContent);
     });
@@ -44,7 +44,7 @@ function printGifs(data, string) {
     if (printed) {
         let childs = [...document.getElementById("results-container").childNodes];
 
-        childs.forEach(index => {
+        childs.forEach((index) => {
             index.remove();
         });
 
@@ -70,7 +70,7 @@ function printGifs(data, string) {
 
 /* styling on click */
 
-document.addEventListener("click", event => {
+document.addEventListener("click", (event) => {
     let target = event.target;
     let btn = document.getElementById("search-btn");
 

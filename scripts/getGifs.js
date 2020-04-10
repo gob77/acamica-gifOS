@@ -8,6 +8,12 @@
     getGifs();
 })();
 
+const btn = document.getElementById("btnNew");
+
+btn.addEventListener("click", () => {
+    location.replace("misGuifos.html");
+});
+
 function printData(data) {
     let dataArray = [...data.data];
     let trend_container = document.getElementById("trends-container");

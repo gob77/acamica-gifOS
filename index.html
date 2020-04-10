@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./style/style.css" />
         <link rel="shortcut icon" href="./img/gifOF_logo.png" type="image/x-icon" />
-        <script src="./scripts/init.js"></script>
+        <script src="./scripts/apiUtilities.js"></script>
         <title>gifOS</title>
     </head>
     <body>
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="buttons">
-                        <button class="btnNew"><a href="misGuifos.html">Crear Guifos</a></button>
+                        <button class="btnNew" id="btnNew">Crear Guifos</button>
                         <div class="themes-container" id="themes-container">
                             <button class="choose" id="elegir">Elegir Tema</button>
                             <div class="themes-name" id="themes">
@@ -94,7 +94,7 @@
             </article>
 
             <article class="results" id="results">
-                <h1 id="results-heading"></h1>
+                <h1 id="results-heading">Resultados</h1>
                 <div class="results-container" id="results-container"></div>
                 <template id="results-template">
                     <div class="results-card">

@@ -1,49 +1,52 @@
-(function checkThemes() {
+(async function checkThemes() {
     let theme = localStorage.getItem("theme");
     let html = document.documentElement;
     html.setAttribute("data-theme", theme);
 })();
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const capture = document.getElementById("capture_container");
-    const stop = document.getElementById("stop");
-    const video = document.querySelector("video");
-    const timer = document.getElementById("timer");
-    const startContainer = document.getElementById("cardFooter");
-    const mainCard = document.getElementById("mainCard");
-    const preview = document.getElementById("preview");
-    const stopContainer = document.getElementById("stop_container");
-    const previewTitle = document.getElementById("preview_title");
-    const uploadContainer = document.getElementById("upload_container");
-    const repeatBTN = document.getElementById("repeat");
-    const uploadBTN = document.getElementById("upload");
-    const previewGif = document.getElementById("preview_gif");
-    const api_key = "api_key=wi0q59XfKI285mmhSNvmSSBSBdNi8NSo";
+    /* buttons */
+
+    const start = document.getElementById("start");
+    const cancel = document.getElementById("cancel");
+    const capture = document.getElementById("capture");
+    const finish = document.getElementById("finish");
+    const upload = document.getElementById("upload");
+    const repeat = document.getElementById("repeat");
+    const cancelUpload = document.getElementById("cancelUpload");
+    const donde = document.getElementById("done");
+
+    /* containers */
+
+    const createCard = document.getElementById("create_card");
+    const previewCard = document.getElementById("preview_card");
+    const recordCard = document.getElementById("record_card");
+    const uploadCard = document.getElementById("upload_card");
+    const uploadingCard = document.getElementById("uploading_card");
+    const successCard = document.getElementById("success_card");
+    const container = document.getElementById("guifosContainer");
+
+    /* video and images */
+
+    const previewVideo = document.getElementById("preview_video");
+    const recordVideo = document.getElementById("record_video");
+    const uploadGif = document.getElementById("upload_gif");
+    const successGif = document.getElementById("success_gif");
+
+    /* variables globales  */
+
     let capturedGif;
     let recorder;
     let streamTest;
     let gifURL;
 
-    startContainer.addEventListener("click", (event) => {
-        let target = event.target;
+    getMisGuifos();
 
-        if (target.id === "start") {
-            setStyles();
-        } else if (target.id === "cancel") {
-            mainCard.style.display = "none";
-        }
-    });
-
-    function setStyles() {
-        mainCard.style.display = "none";
-        uploadContainer.style.display = "none";
-        previewGif.src = "#";
-        preview.style.display = "flex";
-        capture.style.display = "flex";
-        video.style.display = "flex";
-        previewTitle.textContent = "Capturando Tu Guifo";
+    start.addEventListener("click", () => {
         getVideo();
-    }
+        createCard.style.display = "none";
+        previewCard.style.display = "flex";
+    });
 
     function getVideo() {
         navigator.mediaDevices
@@ -55,7 +58,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             })
             .then((stream) => {
                 streamTest = stream;
-                video.srcObject = stream;
+                previewVideo.srcObject = stream;
+                recordVideo.srcObject = stream;
                 recorder = new GifRecorder(stream, {
                     type: "gif",
                     width: 720,
@@ -67,39 +71,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     capture.addEventListener("click", (time) => {
-        capture.style.display = "none";
-        stopContainer.style.display = "flex";
+        previewCard.style.display = "none";
+        recordCard.style.display = "flex";
         getTimer();
         recorder.record();
     });
 
-    stop.addEventListener("click", async () => {
+    finish.addEventListener("click", async () => {
         streamTest.stop();
-        alert("stoped recording");
+        uploadCard.style.display = "flex";
         await recorder.stop((blob) => {
             gifURL = URL.createObjectURL(blob);
-
-            video.style.display = "none";
-
-            previewGif.src = gifURL;
-
-            stopContainer.style.display = "none";
-            uploadContainer.style.display = "flex";
 
             capturedGif = new FormData();
 
             capturedGif.append("file", blob, "myGif.gif");
-
-            recorder.clearRecordedData();
         });
     });
 
-    repeatBTN.addEventListener("click", setStyles);
+    repeat.addEventListener("click", () => {
+        previewCard.style.display = "flex";
+        getVideo();
+    });
 
-    uploadBTN.addEventListener("click", async () => {
-        /* console.log(capturedGif.get("file")); */
-
-        printCapturedGif();
+    upload.addEventListener("click", async () => {
+        uploadCard.style.display = "none";
+        uploadingCard.style.display = "flex";
 
         let options = {
             method: "POST",
@@ -111,7 +108,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         let upload = await fetch(endPoint, options);
         let resp = await upload.json();
 
-        console.log(resp);
+        if (resp.meta.status === 200) {
+            uploadingCard.style.display = "none";
+            successGif.src = gifURL;
+            successCard.style.display = "flex";
+            localStorage.setItem(`gif ${resp.data.id}`, resp.data.id);
+            getMisGuifos();
+        }
     });
 
     function getTimer() {
@@ -126,17 +129,48 @@ document.addEventListener("DOMContentLoaded", async () => {
             timer.textContent = `00:00:0${getMinutes}:${fomartSecs}`;
         }, 1000);
 
-        stop.addEventListener("click", function () {
+        finish.addEventListener("click", function () {
+            recordCard.style.display = "none";
+            uploadGif.src = gifURL;
             clearInterval(interval);
         });
     }
 
     function printCapturedGif(url) {
-        let container = document.getElementById("guifosContainer");
-
         let img = document.createElement("img");
-        img.src = gifURL;
+        img.setAttribute("class", "capturedGif_container");
+        img.src = url;
 
         container.appendChild(img);
+    }
+
+    donde.addEventListener("click", () => {
+        successCard.style.display = "none";
+        createCard.style.display = "flex";
+    });
+
+    async function getMisGuifos() {
+        let length = localStorage.length;
+
+        for (let i = 0; i < length; i++) {
+            let key = localStorage.key(i);
+            let value = localStorage.getItem(localStorage.key(i));
+            let gif = document.getElementById("capturedGif_container");
+
+            if (key.includes("gif")) {
+                let data = await fetch(`http://api.giphy.com/v1/gifs/${value}?${api_key}`);
+                let resp = await data.json();
+                console.log(gif);
+
+                if (container.childNodes > 0) {
+                    gif[i].remove();
+                }
+
+                console.log(resp.data.images.fixed_height.url);
+                printCapturedGif(resp.data.images.fixed_height.url);
+            } else {
+                console.log("not a gif");
+            }
+        }
     }
 });

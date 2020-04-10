@@ -52,6 +52,7 @@ header {
             border: var(--btnBorder);
             box-shadow: var(--btnShadow);
             color: var(--favs);
+            text-decoration: none;
 
             &:hover {
                 outline: var(--outlined);
